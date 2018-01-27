@@ -17,17 +17,29 @@ public class BinaryGap {
      * length 5.
      */
     public static int solution(int n) {
-        String[] zeroes = Integer.toBinaryString(n).split("1");
+        while (n % 2 == 0) n /= 2;
+        String binary = Integer.toBinaryString(n);
+        System.out.println("binary: "+binary);
+        String[] zeroes = binary.split("1");
         int count = 0;
-        for (String zeroe : zeroes) {
-            if (zeroe.length() > count) {
-                count = zeroe.length();
+        for (int i = 0; i < zeroes.length; i++) {
+            if (zeroes[i].length() > count) {
+                count = zeroes[i].length();
             }
         }
         return count;
     }
-    
+
     public static void main(String[] args) {
-        System.out.println(solution(0));
+//        System.out.println(solution(2));
+//        System.out.println(solution(9));
+        System.out.println(solution(2000000000));
+        System.out.println(solution(2000000000/2));
+        System.out.println(solution((2000000000/2)/2));
+        System.out.println(solution(((2000000000/2)/2)/2));
+//        System.out.println(solution(1042));
+//        System.out.println(solution(1043));
+//        System.out.println(solution(1044));
+//        System.out.println(solution(1045));
     }
 }
